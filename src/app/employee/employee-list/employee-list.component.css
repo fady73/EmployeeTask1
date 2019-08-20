@@ -1,0 +1,111 @@
+.table .thead-dark th{
+    background-color: #2196F3 !important;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: green;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px green;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+
+  /* spinner css*/
+  @keyframes lds-blocks {
+    0% {
+      background: #45aee7;
+    }
+    12.5% {
+      background: #45aee7;
+    }
+    12.625% {
+      background: #0055a5;
+    }
+    100% {
+      background: #0055a5;
+    }
+  }
+  @-webkit-keyframes lds-blocks {
+    0% {
+      background: #45aee7;
+    }
+    12.5% {
+      background: #45aee7;
+    }
+    12.625% {
+      background: #0055a5;
+    }
+    100% {
+      background: #0055a5;
+    }
+  }
+  .lds-blocks {
+    position: relative;
+  }
+  .lds-blocks div {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #0055a5;
+    -webkit-animation: lds-blocks 1s linear infinite;
+    animation: lds-blocks 1s linear infinite;
+  }
+  .lds-blocks {
+    width: 200px !important;
+    height: 200px !important;
+    -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+    transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  }

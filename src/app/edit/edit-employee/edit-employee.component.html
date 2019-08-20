@@ -1,0 +1,114 @@
+<div class="container float-right">
+    <div class="row">
+       
+        <div class="col-10">
+            <button type="button" class="btn btn-primary"><a routerLink='/Home' style="color: white">عرض الكل </a></button>
+          </div>
+        <div class="col-2">
+            <p>اضافه موظف جديد </p>
+           </div>
+    </div>
+    
+    <div class="row ">
+        <div class="col-12 ">
+          <form [formGroup]="ngForm" (ngSubmit)="onSubmit()">
+            <div  class="row">
+                <div class="form-group col-6 text-right" [hidden]='true'>
+                    <label for="ID" class="text-right">اسم الموظف</label>
+                    <input type="text" class="form-control"
+                     id="ID" formControlName = "ID">  
+                 </div>
+
+
+                <div class="form-group col-6 text-right">
+                    <label for="JobID" > الوظيفه</label>
+                    <select class="form-control" formControlName="JobID" id="JobID"  [(ngModel)]="select">
+                      <option *ngFor="let job of jobs; let i = index" [value]="jobs[i].ID"  >
+                        {{jobs[i].Name}}
+                      </option>
+                    </select>
+                  
+                    <div class="alert  alert-danger" *ngIf="!ngForm.get('JobID').valid&&ngForm.get('JobID').touched">
+                      <span *ngIf = "ngForm.get('JobID').errors['required']">field is required</span>
+                    </div>
+                 </div>
+              <div class="form-group col-6 text-right">
+                 <label for="Name" class="text-right">اسم الموظف</label>
+                 <input type="text" class="form-control"
+                  id="Name" formControlName = "Name">
+                  <div class="alert  alert-danger"*ngIf="!ngForm.get('Name').valid&&ngForm.get('Name').touched">
+                   <span *ngIf = "ngForm.get('Name').errors['required']">field is required</span>
+                  </div>
+              </div>
+              <div class="form-group col-6 text-right">
+                  <label for="Mobile" class="text-right"> رقم التليفون</label>
+                  <input type="text" class="form-control"
+                   id="Mobile" formControlName = "Mobile">
+                   <div class="alert  alert-danger" *ngIf="!ngForm.get('Mobile').valid&&ngForm.get('Mobile').touched">
+                    <span *ngIf = "ngForm.get('Mobile').errors['required']">field is required</span>
+                    <span *ngIf = "ngForm.get('Mobile').errors['pattern']">enter correct number phone with start 012|010|011 only 11 number</span>
+    
+                   </div>
+               </div>
+              <div class="form-group col-6 text-right">
+                  <label for="Email" class="text-right"> البريد الالكترونى</label>
+                  <input type="text" class="form-control"
+                   id="Email" formControlName = "Email">
+             
+                   <div class="alert  alert-danger" *ngIf="!ngForm.get('Email').valid && ngForm.get('Email').touched">
+                      please enter a valid Email id 
+                   </div>
+               </div>
+               <div class="form-group col-6 text-right">
+    
+                  <div class="radio" >
+                      <label for="gender" class="text-right"> النوع</label>
+                     <div>  
+                    <label>
+                        <span class="text-left">
+                            ذكر
+                        <input  type="radio" [value]="1"
+                        formControlName = "gender"> </span>
+                        <br>
+                        <span class="text-left">
+                            انثى
+                      <input type="radio" [value]="2"
+                      formControlName = "gender"></span>
+                    </label>
+                    </div>
+                  </div>
+              </div>           <div class="form-group col-6 text-right">
+                  <label for="NationalID" class="text-right">  الرقم القومى</label>
+                  <input type="text" class="form-control"
+                   id="NationalID" formControlName = "NationalID">
+                  <span class="help-block" *ngIf="!ngForm.get('NationalID').valid&&ngForm.get('NationalID').touched">
+                    <div class="alert  alert-danger"  *ngIf = "ngForm.get('NationalID').errors['required']">field is required</div>
+                    <div class="alert  alert-danger"  *ngIf = "ngForm.get('NationalID').errors['pattern']">No national id with zero start or more than 14 number</div>
+    
+                  </span>
+               </div>
+    
+             
+            </div>
+           
+            <div class="col-12 text-right">
+    
+            <div class="checkbox text-right" >
+              <div >
+                <label for="IsActive" class="text-right"> الحاله</label></div>
+    
+                <label>
+                  <input type="checkbox" value="true"
+                  formControlName = "IsActive">مفعل
+                </label>
+              </div>
+              </div>
+    
+               <div class="col-12 text-right">
+            <button class="btn btn-primary" type="submit"  [disabled]="!ngForm.valid">حفظ</button>
+               </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
